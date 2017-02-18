@@ -16,6 +16,7 @@
 
 package com.android.server.telecom;
 
+import android.media.AudioAttributes;
 import android.media.Ringtone;
 import android.net.Uri;
 import android.os.Handler;
@@ -143,6 +144,9 @@ public class AsyncRingtonePlayer {
                 return;
             }
         }
+        mRingtone.setCustomAudioAttributes();
+        AudioAttributes mAudioAttributes = mRingtone.getAudioAttributes();
+        mRingtone.setAudioAttributes(mAudioAttributes);
 
         handleRepeat();
     }
